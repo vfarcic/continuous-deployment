@@ -1,0 +1,17 @@
+[Unit]
+Description=nginx
+After=docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker stop nginx
+ExecStartPre=-/usr/bin/docker rm nginx
+
+ExecStartPre=-/usr/bin/docker pull dockerfile/nginx
+ExecStart=/usr/bin/docker run --name nginx -p 80:80 -v /etc/nginx/sites-enabled:/etc/nginx/sites-enabled -v /etc/nginx/certs-enabled:/etc/nginx/certs-enabled -v /var/log/nginx:/var/log/nginx dockerfile/nginx
+
+ExecStop=-/usr/bin/docker stop nginx
+
+[Install]
+WantedBy=multi-user.target

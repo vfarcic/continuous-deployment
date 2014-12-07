@@ -1,0 +1,7 @@
+[template]
+src = "bdd_assistant.conf.tmpl"
+dest = "/etc/nginx/sites-enabled/bdd_assistant.conf"
+keys = [
+    "/bdd-assistant/port"
+]
+reload_cmd = "/usr/bin/docker kill -s HUP nginx"
