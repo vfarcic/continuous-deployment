@@ -1,1 +1,1 @@
-Code used for the article [Continuous Deployment: Implementation][http://technologyconversations.com/2014/12/08/continuous-deployment-implementation/] article
+Code used for the [Continuous Deployment: Implementation](http://technologyconversations.com/2014/12/08/continuous-deployment-implementation/) article.
