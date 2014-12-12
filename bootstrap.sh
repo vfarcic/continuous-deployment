@@ -36,6 +36,7 @@ systemctl daemon-reload
 etcdctl set /bdd-assistant/instance none
 chmod 744 /vagrant/deploy_bdd_assistant.sh
 cp /vagrant/deploy_bdd_assistant.sh /opt/bin/.
+chmod +x /opt/bin/deploy_bdd_assistant.sh
 deploy_bdd_assistant.sh
 echo "Finished BDD Assistant..."
 

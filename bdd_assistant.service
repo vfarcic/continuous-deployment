@@ -18,7 +18,7 @@ ExecStartPost=/usr/bin/etcdctl set /bdd-assistant/port %i
 ExecStartPost=/usr/bin/etcdctl set /bdd-assistant/%P/url %H:%i
 ExecStartPost=/usr/bin/etcdctl set /bdd-assistant/%P/port %i
 ExecStartPost=/usr/bin/etcdctl set /bdd-assistant/%P/status running
-ExecStartPost=/usr/bin/sleep 5
+ExecStartPost=/usr/bin/sleep 10
 
 ExecStop=-/usr/bin/docker stop %P
 ExecStopPost=/usr/bin/etcdctl set /bdd-assistant/%P/status stopped
