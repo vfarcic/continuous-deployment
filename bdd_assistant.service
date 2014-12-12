@@ -12,13 +12,13 @@ ExecStartPre=-/usr/bin/docker rm %P
 
 ExecStartPre=-/usr/bin/docker pull vfarcic/technologyconversationsbdd
 ExecStart=/usr/bin/docker run --name %P -p %i:9000 vfarcic/technologyconversationsbdd
+ExecStartPost=/usr/bin/sleep 5
 ExecStartPost=/usr/bin/etcdctl set /bdd-assistant/instance %P
 ExecStartPost=/usr/bin/etcdctl set /bdd-assistant/url %H:%i
 ExecStartPost=/usr/bin/etcdctl set /bdd-assistant/port %i
 ExecStartPost=/usr/bin/etcdctl set /bdd-assistant/%P/url %H:%i
 ExecStartPost=/usr/bin/etcdctl set /bdd-assistant/%P/port %i
 ExecStartPost=/usr/bin/etcdctl set /bdd-assistant/%P/status running
-ExecStartPost=/usr/bin/sleep 10
 
 ExecStop=-/usr/bin/docker stop %P
 ExecStopPost=/usr/bin/etcdctl set /bdd-assistant/%P/status stopped
