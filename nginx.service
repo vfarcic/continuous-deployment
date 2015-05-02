@@ -9,7 +9,7 @@ ExecStartPre=-/usr/bin/docker stop nginx
 ExecStartPre=-/usr/bin/docker rm nginx
 
 ExecStartPre=-/usr/bin/docker pull nginx
-ExecStart=/usr/bin/docker run --name nginx -p 80:80 -v /etc/nginx/sites-enabled:/etc/nginx/sites-enabled -v /etc/nginx/certs-enabled:/etc/nginx/certs-enabled -v /var/log/nginx:/var/log/nginx nginx
+ExecStart=/usr/bin/docker run --name nginx -p 80:80 -v /etc/nginx/sites-enabled:/etc/nginx/conf.d -v /etc/nginx/certs-enabled:/etc/nginx/certs -v /var/log/nginx:/var/log/nginx nginx
 
 ExecStop=-/usr/bin/docker stop nginx
 
